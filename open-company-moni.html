@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Steps in Belgium</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: right;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="button-container">
+    <button onclick="printTable()">طباعة</button>
+    <button onclick="copyTable()">نسخ المحتوى</button>
+</div>
+
+<table id="business-steps-table">
+    <h1>خطوات فتح شركة في بلجيكا</h1>
+    <h1>    خطة - سند - ضرائب-  بنك- انترنت      </h1>
+    <tr>
+        <th>الرقم التسلسلي</th>
+        <th>الخطوات</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>
+            <b>وضع خطة عمل</b><br>
+            أبحاث السوق: ابحث في السوق لفهم من هي مجموعتك المستهدفة وكيف يمكنك وضع منتجاتك أو خدماتك.<br>
+            التخطيط المالي: إعداد خطة مالية تفصيلية تتضمن رأس المال الأولي وتكاليف التشغيل والدخل المتوقع.<br>
+            تقسيم المهام: ناقشي مع شريكك من هو المسؤول عن المهام، حتى يكون لدى الطرفين فكرة واضحة عن أدوارهما.
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>
+            <b>اختر الشكل القانوني</b><br>
+            مالك وحيد أم شراكة؟ اختر الشكل القانوني الذي يناسب حالتك. بالنسبة للزوجين مثلك، يمكن أن تكون شركة مثل VOF (شركة شراكة) أو BV (شركة خاصة محدودة) مفيدة.<br>
+            سند توثيقي: بالنسبة لأنواع معينة من الشركات، يلزم وجود سند توثيقي. التشاور مع كاتب العدل لتحديد ما هو الأفضل بالنسبة لك.
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>
+            <b>الإجراءات الإدارية والقانونية</b><br>
+            تسجيل KBO: سجل عملك لدى Crossroads Bank for Enterprises (KBO). وهذا إلزامي لجميع الشركات في بلجيكا.<br>
+            رقم ضريبة القيمة المضافة: تقدم بطلب للحصول على رقم ضريبة القيمة المضافة من خلال FPS Finance.<br>
+            المساهمات الاجتماعية: إدارة العضوية في صندوق الضمان الاجتماعي للعاملين لحسابهم الخاص، لك ولشريكك.
+        </td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>
+            <b>التمويل والتأمين</b><br>
+            افتح حسابًا مصرفيًا تجاريًا مشتركًا - يعد هذا أمرًا ضروريًا للفصل بين الشؤون المالية الشخصية والتجارية.<br>
+            التأمين: الحصول على التأمين اللازم، مثل تأمين المسؤولية المهنية وتأمين المرض والعجز.
+        </td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>
+            <b>البدء بالعمليات التجارية والتسويق</b><br>
+            التواجد عبر الإنترنت: أنشئ موقعًا إلكترونيًا وامتلك استراتيجية تسويق جيدة عبر الإنترنت، بما في ذلك وسائل التواصل الاجتماعي.<br>
+            التواصل: شارك في شبكات الأعمال المحلية لتوسيع شبكتك والالتقاء بالعملاء المحتملين.<br>
+            ابدأ البيع: ابدأ في عرض منتجاتك أو خدماتك وقم بتقييم مدى تقدم عملك بشكل دوري.
+        </td>
+    </tr>
+</table>
+
+<script>
+    function printTable() {
+        var divToPrint = document.getElementById('business-steps-table');
+        var newWin = window.open('');
+        newWin.document.write('<html><head><title>Print Table</title></head><body>' + divToPrint.outerHTML + '</body></html>');
+        newWin.document.close();
+        newWin.print();
+    }
+
+    function copyTable() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById('business-steps-table'));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        alert('تم نسخ المحتوى');
+    }
+</script>
+
+</body>
+</html>
