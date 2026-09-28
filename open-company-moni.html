@@ -1,125 +1,95 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Steps in Belgium</title>
+    <title>مواعيد الصلاة في ليل وفرنسا</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            direction: rtl;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: right;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-        .button-container {
-            margin-bottom: 20px;
-        }
-        button {
-            margin-right: 10px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
+        body { font-family: system-ui, sans-serif; background: #f0f2f5; padding: 20px; display: flex; justify-content: center; }
+        .card { background: #fff; padding: 25px; border-radius: 12px; width: 100%; max-width: 400px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #1a252f; margin-top: 0; }
+        label { font-size: 14px; color: #555; display: block; margin-top: 10px; margin-bottom: 4px; }
+        select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 15px; margin-bottom: 10px; }
+        .date { text-align: center; font-size: 13px; color: #666; margin: 15px 0; background: #eef2f5; padding: 8px; border-radius: 6px; }
+        .prayer-row { display: flex; justify-content: space-between; padding: 10px 12px; margin-bottom: 6px; background: #f8f9fa; border-radius: 6px; }
+        .prayer-name { font-weight: bold; color: #333; }
+        .prayer-time { color: #2e7d32; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="button-container">
-    <button onclick="printTable()">طباعة</button>
-    <button onclick="copyTable()">نسخ المحتوى</button>
+<div class="card">
+    <h2>مواعيد الصلاة</h2>
+
+    <!-- اختيار المدينة -->
+    <label>المدينة:</label>
+    <select id="citySelect" onchange="fetchPrayerTimes()">
+        <option value="Lille" selected>ليل (Lille)</option>
+        <option value="Paris">باريس (Paris)</option>
+        <option value="Lyon">ليون (Lyon)</option>
+        <option value="Marseille">مارسيليا (Marseille)</option>
+    </select>
+
+    <!-- اختيار طريقة الحساب لتصحيح أوقات الفجر والعشاء -->
+    <label>طريقة الحساب (Method):</label>
+    <select id="methodSelect" onchange="fetchPrayerTimes()">
+        <option value="12" selected>اتحاد المسلمين في فرنسا (12° - UOIF)</option>
+        <option value="3">رابطة العالم الإسلامي (18°)</option>
+        <option value="2">أم القرى / طريقة 15°</option>
+    </select>
+
+    <div class="date" id="currentDate">جاري التحديث...</div>
+
+    <div id="prayersList"></div>
 </div>
 
-<table id="business-steps-table">
-    <h1>خطوات فتح شركة في بلجيكا</h1>
-    <h1>    خطة - سند - ضرائب-  بنك- انترنت      </h1>
-    <tr>
-        <th>الرقم التسلسلي</th>
-        <th>الخطوات</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>
-            <b>وضع خطة عمل</b><br>
-            أبحاث السوق: ابحث في السوق لفهم من هي مجموعتك المستهدفة وكيف يمكنك وضع منتجاتك أو خدماتك.<br>
-            التخطيط المالي: إعداد خطة مالية تفصيلية تتضمن رأس المال الأولي وتكاليف التشغيل والدخل المتوقع.<br>
-            تقسيم المهام: ناقشي مع شريكك من هو المسؤول عن المهام، حتى يكون لدى الطرفين فكرة واضحة عن أدوارهما.
-        </td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>
-            <b>اختر الشكل القانوني</b><br>
-            مالك وحيد أم شراكة؟ اختر الشكل القانوني الذي يناسب حالتك. بالنسبة للزوجين مثلك، يمكن أن تكون شركة مثل VOF (شركة شراكة) أو BV (شركة خاصة محدودة) مفيدة.<br>
-            سند توثيقي: بالنسبة لأنواع معينة من الشركات، يلزم وجود سند توثيقي. التشاور مع كاتب العدل لتحديد ما هو الأفضل بالنسبة لك.
-        </td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>
-            <b>الإجراءات الإدارية والقانونية</b><br>
-            تسجيل KBO: سجل عملك لدى Crossroads Bank for Enterprises (KBO). وهذا إلزامي لجميع الشركات في بلجيكا.<br>
-            رقم ضريبة القيمة المضافة: تقدم بطلب للحصول على رقم ضريبة القيمة المضافة من خلال FPS Finance.<br>
-            المساهمات الاجتماعية: إدارة العضوية في صندوق الضمان الاجتماعي للعاملين لحسابهم الخاص، لك ولشريكك.
-        </td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>
-            <b>التمويل والتأمين</b><br>
-            افتح حسابًا مصرفيًا تجاريًا مشتركًا - يعد هذا أمرًا ضروريًا للفصل بين الشؤون المالية الشخصية والتجارية.<br>
-            التأمين: الحصول على التأمين اللازم، مثل تأمين المسؤولية المهنية وتأمين المرض والعجز.
-        </td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>
-            <b>البدء بالعمليات التجارية والتسويق</b><br>
-            التواجد عبر الإنترنت: أنشئ موقعًا إلكترونيًا وامتلك استراتيجية تسويق جيدة عبر الإنترنت، بما في ذلك وسائل التواصل الاجتماعي.<br>
-            التواصل: شارك في شبكات الأعمال المحلية لتوسيع شبكتك والالتقاء بالعملاء المحتملين.<br>
-            ابدأ البيع: ابدأ في عرض منتجاتك أو خدماتك وقم بتقييم مدى تقدم عملك بشكل دوري.
-        </td>
-    </tr>
-</table>
-
 <script>
-    function printTable() {
-        var divToPrint = document.getElementById('business-steps-table');
-        var newWin = window.open('');
-        newWin.document.write('<html><head><title>Print Table</title></head><body>' + divToPrint.outerHTML + '</body></html>');
-        newWin.document.close();
-        newWin.print();
-    }
+async function fetchPrayerTimes() {
+    const city = document.getElementById('citySelect').value;
+    const method = document.getElementById('methodSelect').value;
+    const prayersList = document.getElementById('prayersList');
+    const currentDate = document.getElementById('currentDate');
 
-    function copyTable() {
-        var range = document.createRange();
-        range.selectNode(document.getElementById('business-steps-table'));
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-        document.execCommand('copy');
-        alert('تم نسخ المحتوى');
+    prayersList.innerHTML = '<p style="text-align:center;">جاري جلب المواعيد...</p>';
+
+    try {
+        // جلب البيانات ديناميكياً بناءً على المدينة والتاريخ الحالي وطريقة الحساب
+        const response = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=France&method=${method}`);
+        const result = await response.json();
+
+        if (result.code === 200) {
+            const data = result.data;
+            const timings = data.timings;
+
+            // عرض التاريخ
+            currentDate.innerText = `${data.date.gregorian.weekday.ar} - ${data.date.gregorian.date} مـ | ${data.date.hijri.date} هـ`;
+
+            const namesAR = {
+                Fajr: "الفجر",
+                Sunrise: "الشروق",
+                Dhuhr: "الظهر",
+                Asr: "العصر",
+                Maghrib: "المغرب",
+                Isha: "العشاء"
+            };
+
+            prayersList.innerHTML = '';
+            for (let [key, name] of Object.entries(namesAR)) {
+                prayersList.innerHTML += `
+                    <div class="prayer-row">
+                        <span class="prayer-name">${name}</span>
+                        <span class="prayer-time">${timings[key]}</span>
+                    </div>
+                `;
+            }
+        }
+    } catch (error) {
+        prayersList.innerHTML = '<p style="color:red; text-align:center;">حدث خطأ في الاتصال!</p>';
     }
+}
+
+// التشغيل التلقائي عند فتح الصفحة
+fetchPrayerTimes();
 </script>
 
 </body>
